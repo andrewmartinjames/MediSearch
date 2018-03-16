@@ -43,33 +43,27 @@ varargout{1} = handles.output;
 
 
 function edit1_Callback(hObject1, eventdata, handles)
-global drgYellow;
-drgYellow = get(hObject1, 'string');
 
 
 function edit2_Callback(hObject2, eventdata, handles)
-global drgOrange;
-drgOrange = get(hObject2, 'string');
+
 
 
 function edit3_Callback(hObject3, eventdata, handles)
-global drgBlue;
-drgBlue = get(hObject3, 'string');
+
 
 
 function edit4_Callback(hObject4, eventdata, handles)
-global drgGreen;
-drgGreen = get(hObject4, 'string');
+
 
 % --- Executes on button press in pushbutton1.
 function pushbutton1_Callback(hObject, eventdata, handles)
-global drgYellow;
 load('Yellow.mat');
 [m,n] = size(Yellow);
 a = 1;
 for i = 1:m
     stringThing = Yellow {i,1};
-    if strcmp(stringThing,drgYellow) %input text
+    if strcmp(stringThing, get(handles.edit1, 'string'))%drgYellow) %input text
         for e = 1:10
             global ansArrayYellow;
             ansArrayYellow{a,e}=num2str(Yellow{i,e});
@@ -109,13 +103,12 @@ title('Yellow Region number of DRG by State');
 
 % --- Executes on button press in pushbutton2.
 function pushbutton2_Callback(hObject, eventdata, handles)
-global drgOrange;
 load('Orange.mat');
 [m,n] = size(Orange);
 a = 1;
 for i = 1:m
     stringThing = Orange {i,1};
-    if strcmp(stringThing,drgOrange) %input text
+    if strcmp(stringThing,get(handles.edit2, 'string')) %input text
         for e = 1:10
             global ansArrayOrange;
             ansArrayOrange{a,e}=num2str(Orange{i,e});
@@ -152,13 +145,12 @@ title('Orange Region number of DRG by State');
 
 % --- Executes on button press in pushbutton3.
 function pushbutton3_Callback(hObject, eventdata, handles)
-global drgBlue;
 load('Blue.mat');
 [m,n] = size(Blue);
 a = 1;
 for i = 1:m
     stringThing = Blue {i,1};
-    if strcmp(stringThing,drgBlue) %input text
+    if strcmp(stringThing,get(handles.edit3, 'string')) %input text
         for e = 1:10
             global ansArrayBlue;
             ansArrayBlue{a,e}=num2str(Blue{i,e});
@@ -198,13 +190,12 @@ title('Blue Region number of DRG by State');
 
 % --- Executes on button press in pushbutton4.
 function pushbutton4_Callback(hObject, eventdata, handles)
-global drgGreen;
 load('Green.mat');
 [m,n] = size(Green);
 a = 1;
 for i = 1:m
     stringThing = Green {i,1};
-    if strcmp(stringThing,drgGreen) %input text
+    if strcmp(stringThing,get(handles.edit4, 'string')) %input text
         for e = 1:10
             global ansArrayGreen;
             ansArrayGreen{a,e}=num2str(Green{i,e});
